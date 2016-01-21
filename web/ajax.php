@@ -5,7 +5,7 @@
     spl_autoload_register('App\AutoLoader');
     function AutoLoader($className)
     {
-        if (file_exists('src/' . $className . '.php')) require_once 'src/'.$className.'.php';
+        if (file_exists('../src/' . $className . '.php')) require_once '../src/'.$className.'.php';
     }
 
     $path = explode('/', (($_SERVER["PATH_INFO"]) ? $_SERVER["PATH_INFO"] : "/default"));

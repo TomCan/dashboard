@@ -14,7 +14,21 @@ class screensController
     public function indexAction() {
 
         header('Content-type: application/json');
-        return "{screens: [ {type: \"zabbix\"}, {type: \"kayako\"}, {type: \"jira\"}]}";
+
+        $ret = [];
+
+        $obj = new \stdClass();
+        $obj->type = "zabbix";
+        $ret[] = $obj;
+
+        $obj = new \stdClass();
+        $obj->type = "jira";
+        $ret[] = $obj;
+        $obj = new \stdClass();
+        $obj->type = "kayako";
+        $ret[] = $obj;
+
+        return json_encode(array("screens" => $ret));
 
     }
 
