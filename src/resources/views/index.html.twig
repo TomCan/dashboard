@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Dashboard</title>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+        <script>
+
+            $(document).ready(function() {
+                getScreenList();
+            });
+
+            function getScreenList() {
+
+                $.ajax({
+                    url: "ajax.php/screens"
+                });
+
+            }
+
+        </script>
+
+        <style>
+
+            body {
+                padding: 0px;
+                margin: 0px;
+                overflow: hidden;
+            }
+
+            #dashboard_status {
+                margin: 0px;
+                padding: 5vh;
+                background-color: #ccc;
+                height: 90vh;
+                position: relative;
+            }
+
+            #dashboard_screens {
+                height: 90vh;
+                background-color: white;
+            }
+
+            .dashboard_screen {
+                height: 90vh;
+                padding: 5vh;
+            }
+
+            #dashboard_nav {
+                position: absolute;
+                top: 0px;
+                height: 5vh;
+                left: 5vw;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .dashboard_nav_button {
+                height: 4.5vh;
+                min-width: 4.5vh;
+                line-height: 4.5vh;
+                border: solid 1px blue;
+            }
+
+            .prio_0_bg { background-color: #66cc00; }
+            .prio_1_bg { background-color: #b8caff; }
+            .prio_2_bg { background-color: #ffe270; }
+            .prio_3_bg { background-color: #FFB689; }
+            .prio_4_bg { background-color: #ff9999; }
+            .prio_5_bg { background-color: #ff3333; }
+
+            .prio_0 { color: #66cc00; }
+            .prio_1 { color: #b8caff; }
+            .prio_2 { color: #ffe270; }
+            .prio_3 { color: #FFB689; }
+            .prio_4 { color: #ff9999; }
+            .prio_5 { color: #ff3333; }
+
+
+        </style>
+
+    </head>
+    <body>
+        <div id="dashboard_status">
+            <div id="dashboard_screens">
+                <div class="dashboard_screen" id="dashboard_screen_main">
+                    Please wait... loading and stuff
+                </div>
+            </div>
+        </div>
+    <div id="dashboard_nav">
+        <div class="dashboard_nav_button">1</div>
+    </div>
+    </body>
+</html>
