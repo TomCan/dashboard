@@ -12,8 +12,7 @@
 
         <script>
             $(document).ready(function() {
-                console.log($dashboard);
-                $dashboard.getScreenList();
+                $dashboard.init();
             });
         </script>
 
@@ -52,11 +51,20 @@
                 vertical-align: middle;
             }
 
-            .dashboard_nav_button {
+            .dashboard_nav {
                 height: 4.5vh;
                 min-width: 4.5vh;
                 line-height: 4.5vh;
                 border: solid 1px blue;
+                padding: 0px 10px;
+                color: black;
+                background-color: #ddd;
+                display: inline-block;
+            }
+
+            .dashboard_nav.active {
+                color: white;
+                background-color: blue;
             }
 
             .prio_0_bg { background-color: #66cc00; }
@@ -73,6 +81,9 @@
             .prio_4 { color: #ff9999; }
             .prio_5 { color: #ff3333; }
 
+            .hidden {
+                display: none;
+            }
 
         </style>
 
@@ -80,13 +91,12 @@
     <body>
         <div id="dashboard_status">
             <div id="dashboard_screens">
-                <div class="dashboard_screen" id="dashboard_screen_main">
+                <div class="dashboard_screen" id="dashboard_screen_init">
                     Please wait... loading and stuff
                 </div>
             </div>
         </div>
     <div id="dashboard_nav">
-        <div class="dashboard_nav_button">1</div>
     </div>
     </body>
 </html>
