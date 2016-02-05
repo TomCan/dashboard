@@ -8,10 +8,13 @@ var $dashboard = {
     screenIds: [],
     activeScreen: 0,
 
-    locked: false,
+    locked: [],
 
     firstInterval: null,
     screenInterval: null,
+
+    alertLevel: 0,
+    alertColors: [ '#cccccc', '#b8caff', '#ffe270', '#ffb689', '#ff9999', '#ff3333' ],
 
     init: function() {
 
@@ -41,11 +44,22 @@ var $dashboard = {
 
     nextScreen: function() {
 
-        if (this.locked) return;
+        if (this.locked.length == 1) return;
+        if (this.locked.length > 1) {
 
-        this.activeScreen++;
-        if (this.activeScreen >= this.screenIds.length) this.activeScreen = 0;
-        this.activateScreen();
+            this.activeScreen++;
+            while (this.locked.indexOf(this.activeScreen) === false) {
+                this.activeScreen++;
+                if (this.activeScreen >= this.screenIds.length) this.activeScreen = 0;
+            }
+
+        } else {
+
+            this.activeScreen++;
+            if (this.activeScreen >= this.screenIds.length) this.activeScreen = 0;
+            this.activateScreen();
+
+        }
 
     },
 
@@ -76,6 +90,26 @@ var $dashboard = {
         });
 
     },
+
+    setAlert: function (id, level) {
+        if (level != this.alertLevel) {
+            this.alertLevel = level;
+            $('#dashboard_status').css('background-color', this.alertColors[level]);
+        }
+
+        if (level > 3) {
+            // lock the screen
+            if (this.locked.indexOf(id) === false) {
+                this.locked.push(id);
+            }
+        } else {
+            // unlock the screen
+            if (this.locked.indexOf(id) !== false) {
+                // TODO: remove element from array
+            }
+        }
+
+    }
 
 };
 
