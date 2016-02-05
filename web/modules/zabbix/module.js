@@ -5,20 +5,20 @@
 $dashboard.screens['zabbix'].obj = {
 
     name: 'zabbix',
-    id: null,
-    elem: null,
+    dashboard: null,
+    settings: null,
     interval: null,
 
     username: null,
     password: null,
     url: null,
 
-    init: function(id, elem) {
+    alertLevel: 0,
 
-        console.log(this.name + ' init ' + id);
+    init: function(settings) {
 
-        this.id = id;
-        this.elem = elem;
+        this.settings = settings;
+        this.dashboard = settings.dashboard;
         this.interval = setInterval(this.refresh.bind(this), 10000);
 
         // load the config
@@ -32,7 +32,7 @@ $dashboard.screens['zabbix'].obj = {
 
         // load the template
         $.get('modules/zabbix/template.html').success(function(data) {
-            $($dashboard.screens['zabbix'].obj.elem).html(data);
+            $(context.settings.elem).html(data);
         });
 
     },

@@ -5,23 +5,18 @@
 $dashboard.screens['kayako'].obj = {
 
     name: 'kayako',
-    id: null,
     interval: null,
-    elem: null,
 
-    init: function(id, elem) {
+    init: function(settings) {
 
-        console.log(this.name + ' init ' + id);
-
-        this.id = id;
-        this.elem = elem;
+        this.settings = settings;
 
         this.interval = setInterval(this.refresh, 60000);
         this.refresh();
 
         // load the template
         $.get('modules/kayako/template.html').success(function(data) {
-            $($dashboard.screens['kayako'].obj.elem).html(data);
+            $($dashboard.screens['kayako'].obj.settings.elem).html(data);
         });
 
     },

@@ -82,7 +82,7 @@ var $dashboard = {
                         $.getScript('modules/' + s.type + '/module.js', function() {
                             $('#dashboard_screens').append('<div class="dashboard_screen hidden" id="dashboard_screen_' + s.type + '"></div>');
                             $('#dashboard_nav').append('<div class="dashboard_nav" id="dashboard_nav_' + s.type + '">' + s.type + '</div>');
-                            this2.screens[s.type].obj.init('dashboard_screen_' + s.type, $('#dashboard_screen_' + s.type));
+                            this2.screens[s.type].obj.init({ dashboard: this2, screenId: this2.screenIds.length - 1, cssId: 'dashboard_screen_' + s.type, element: $('#dashboard_screen_' + s.type)});
                         });
                     }
 

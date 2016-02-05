@@ -5,20 +5,18 @@
 $dashboard.screens['jira'].obj = {
 
     name: 'jira',
-    id: null,
-    elem: null,
     interval: null,
 
-    init: function(id, elem) {
+    init: function(settings) {
 
-        this.id = id;
-        this.elem = elem;
+        this.settings = settings;
+
         this.interval = setInterval(this.refresh, 60000);
         this.refresh();
 
         // load the template
         $.get('modules/jira/template.html').success(function(data) {
-            $($dashboard.screens['jira'].obj.elem).html(data);
+            $($dashboard.screens['jira'].obj.settings.elem).html(data);
         });
 
     },
