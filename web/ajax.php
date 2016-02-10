@@ -8,6 +8,8 @@
         if (file_exists('../src/' . $className . '.php')) require_once '../src/'.$className.'.php';
     }
 
+    require_once('../vendor/autoload.php');
+
     $path = explode('/', (($_SERVER["PATH_INFO"]) ? $_SERVER["PATH_INFO"] : "/default"));
     array_shift($path);
 
