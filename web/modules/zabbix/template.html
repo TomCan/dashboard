@@ -1,3 +1,44 @@
-<h1>Zabbix issues</h1>
+<h1>ZABBIX ALERTS</h1>
 
-LIST OF ZABBIX ISSUES HERE
+<div style="display: none;" id="ZABBIX_templates">
+    <div class="ZABBIX_triggerrow">
+        <div class="row prio_{ZABBIX_PRIO}{ZABBIX_STATE}_bg">
+            <div class="host">{ZABBIX_HOST}</div>
+            <div class="description">{ZABBIX_DESCRIPTION}</div>
+            <div class="time">{ZABBIX_AGO}</div>
+        </div>
+    </div>
+</div>
+
+<div id="activeTriggers" class="activeTriggers">
+</div>
+
+<div id="inactiveTriggers" class="inactiveTriggers">
+</div>
+
+<style>
+    #activeTriggers .row div {
+        float: left;
+        font-size: 38pt;
+        background-color: inherit;
+    }
+    #activeTriggers .row div.host, #activeTriggers .row div.time {
+        width: 18%;
+    }
+    #activeTriggers .row div.description {
+        width: 63%;
+    }
+
+    #inactiveTriggers .row div {
+        float: left;
+        font-size: 24pt;
+        background-color: inherit;
+    }
+    #inactiveTriggers .row div.host, #inactiveTriggers .row div.time {
+        width: 18%;
+    }
+    #inactiveTriggers .row div.description {
+        width: 63%;
+    }
+
+</style>

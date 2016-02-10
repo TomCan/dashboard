@@ -1,6 +1,7 @@
 {
     "require": {
         "twig/twig": "^1.23",
-        "symfony/yaml": "^3.0"
+        "symfony/yaml": "^3.0",
+        "guzzlehttp/guzzle": "^6.1"
     }
 }
