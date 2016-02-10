@@ -1,4 +1,8 @@
 zabbix;
   url:  http://url.to.zabbix/
-  user: username
-  pass: password
+  username: username
+  password: password
+screens:
+  - zabbix
+  - kayako
+  - jira
