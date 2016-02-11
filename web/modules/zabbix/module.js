@@ -37,8 +37,6 @@ $dashboard.screens['zabbix'].obj = {
         var context = this;
         $.getJSON('ajax.php/zabbix/getActiveTriggers').success(function(data) {
 
-            console.log(data);
-
             active = [];
             inactive = [];
             for(var i = 0; i < data.result.length; i++) {
