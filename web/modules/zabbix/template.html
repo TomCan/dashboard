@@ -17,13 +17,21 @@
 </div>
 
 <style>
+    
+    #activeTriggers .row, #inactiveTriggers .row {
+        clear: both;
+    }
+    
     #activeTriggers .row div {
         float: left;
         font-size: 38pt;
         background-color: inherit;
     }
-    #activeTriggers .row div.host, #activeTriggers .row div.time {
-        width: 18%;
+    #activeTriggers .row div.time {
+        width: 15%;
+    }
+    #activeTriggers .row div.host {
+        width: 20%;
     }
     #activeTriggers .row div.description {
         width: 63%;
@@ -34,8 +42,11 @@
         font-size: 24pt;
         background-color: inherit;
     }
-    #inactiveTriggers .row div.host, #inactiveTriggers .row div.time {
-        width: 18%;
+    #inactiveTriggers .row div.time {
+        width: 15%;
+    }
+    #inactiveTriggers .row div.host {
+        width: 20%;
     }
     #inactiveTriggers .row div.description {
         width: 63%;

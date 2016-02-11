@@ -69,7 +69,7 @@ $dashboard.screens['zabbix'].obj = {
                     .replace("{ZABBIX_PRIO}", active[i].priority)
                     .replace("{ZABBIX_STATE}", '')
                     .replace("{ZABBIX_DESCRIPTION}", active[i].description)
-                    .replace("{ZABBIX_AGO}", active[i].ago);
+                    .replace("{ZABBIX_AGO}", context.formatTime(parseInt(active[i].ago)));
 
                 $('#activeTriggers').append(row);
 
@@ -82,7 +82,7 @@ $dashboard.screens['zabbix'].obj = {
                     .replace("{ZABBIX_PRIO}", inactive[i].priority)
                     .replace("{ZABBIX_STATE}", 'i')
                     .replace("{ZABBIX_DESCRIPTION}", inactive[i].description)
-                    .replace("{ZABBIX_AGO}", inactive[i].ago);
+                    .replace("{ZABBIX_AGO}", context.formatTime(parseInt(inactive[i].ago)));
 
                 $('#inactiveTriggers').append(row);
 
@@ -91,6 +91,40 @@ $dashboard.screens['zabbix'].obj = {
             context.dashboard.setAlert('zabbix', level);
 
         });
+
+    },
+
+    formatTime: function(seconds) {
+
+        delta = seconds;
+
+        // calculate (and subtract) whole days
+        var days = Math.floor(delta / 86400);
+        delta -= days * 86400;
+
+        // calculate (and subtract) whole hours
+        var hours = Math.floor(delta / 3600) % 24;
+        delta -= hours * 3600;
+
+        // calculate (and subtract) whole minutes
+        var minutes = Math.floor(delta / 60) % 60;
+        delta -= minutes * 60;
+
+        // what's left is seconds
+        var seconds = delta % 60;  // in theory the modulus is not required
+
+        var formatted = "";
+        if (days > 0) {
+            formatted = days + "d " + hours + 'h ' + minutes + 'm';
+        } else if (hours > 0) {
+            formatted = hours + 'h ' + minutes + 'm ' + seconds + 's';
+        } else if (minutes > 0) {
+            formatted = minutes + 'm ' + seconds + 's';
+        } else {
+            formatted = seconds + 's';
+        }
+        return formatted;
+
 
     }
 
