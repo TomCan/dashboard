@@ -1,0 +1,84 @@
+<h1>Kayako tickets</h1>
+
+<div class="kayako_overview">
+    <div class="kayako_now">
+        <h2>Tickets by status</h2>
+        <div class="kayako_row rank_1">
+            <div class="kayako_ticket_status">Open</div>
+            <div class="kayako_ticket_count kayako_ticket_count_open">0</div>
+        </div>
+        <div class="kayako_row rank_2">
+            <div class="kayako_ticket_status">Feedback</div>
+            <div class="kayako_ticket_count kayako_ticket_count_feedback">0</div>
+        </div>
+        <div class="kayako_row rank_3">
+            <div class="kayako_ticket_status">On hold</div>
+            <div class="kayako_ticket_count kayako_ticket_count_onhold">0</div>
+        </div>
+        <div class="kayako_row rank_4">
+            <div class="kayako_ticket_status">Closed</div>
+            <div class="kayako_ticket_count kayako_ticket_count_closed">0</div>
+        </div>
+    </div>
+
+    <div class="kayako_by_members">
+        <h2>Open tickets by user</h2>
+        <div id="kayako_by_members_members">
+        </div>
+    </div>
+</div>
+
+<div id="KAYAKO_OVERVIEW_templates" style="display: none;">
+    <div class="kayako_by_members_member">
+        <div class="kayako_by_members_member_row rank_{KAYAKO_RANK}">
+            <div class="kayako_by_members_member_name">{KAYAKO_NAME}</div>
+            <div class="kayako_by_members_member_count">{KAYAKO_COUNT}</div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    .kayako_overview {
+        vertical-align: top;
+    }
+
+    .kayako_now, .kayako_by_members {
+        display: inline-block;
+        width: 45%;
+        vertical-align: top;
+    }
+
+    .kayako_ticket_count, .kayako_by_members_member_count {
+        display: inline-block;
+        width: 30%;
+    }
+
+    .kayako_ticket_count {
+        text-align: right;
+    }
+
+    .kayako_ticket_status, .kayako_by_members_member_name {
+        display: inline-block;
+        width: 60%;
+    }
+
+    .kayako_by_members_member_count {
+        text-align: right;
+    }
+
+    .kayako_by_members_member_row, .kayako_row {
+        font-size: 20pt;
+    }
+
+    .rank_1 {
+        font-size: 26pt;
+    }
+    .rank_2 {
+        font-size: 24pt;
+    }
+    .rank_3 {
+        font-size: 22pt;
+    }
+
+</style>

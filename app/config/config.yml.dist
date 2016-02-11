@@ -2,6 +2,11 @@ zabbix:
   url:  http://url.to.zabbix/
   username: username
   password: password
+kayako:
+  host: -
+  username: -
+  password: -
+  database: -
 screens:
   - zabbix
   - kayako

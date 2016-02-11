@@ -16,16 +16,18 @@ class screensController
         header('Content-type: application/json');
 
         $ret = [];
-
+/*
         $obj = new \stdClass();
         $obj->type = "zabbix";
         $ret[] = $obj;
-
+*/
+/*
         $obj = new \stdClass();
         $obj->type = "jira";
         $ret[] = $obj;
+*/
         $obj = new \stdClass();
-        $obj->type = "kayako";
+        $obj->type = "kayako-stats";
         $ret[] = $obj;
 
         return json_encode(array("screens" => $ret));
