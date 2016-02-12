@@ -8,6 +8,8 @@
  */
 namespace App\Controllers\Ajax;
 
+use \App\Config;
+
 class screensController
 {
 
@@ -15,20 +17,15 @@ class screensController
 
         header('Content-type: application/json');
 
+        $screens = Config::get('screens');
+
         $ret = [];
-/*
-        $obj = new \stdClass();
-        $obj->type = "zabbix";
-        $ret[] = $obj;
-*/
-/*
-        $obj = new \stdClass();
-        $obj->type = "jira";
-        $ret[] = $obj;
-*/
-        $obj = new \stdClass();
-        $obj->type = "kayako-stats";
-        $ret[] = $obj;
+
+        foreach ($screens as $screen) {
+            $obj = new \stdClass();
+            $obj->type = $screen;
+            $ret[] = $obj;
+        }
 
         return json_encode(array("screens" => $ret));
 

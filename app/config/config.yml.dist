@@ -9,5 +9,5 @@ kayako:
   database: -
 screens:
   - zabbix
-  - kayako
+  - kayako-stats
   - jira
