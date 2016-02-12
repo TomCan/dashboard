@@ -15,6 +15,7 @@ $dashboard.screens['zabbix'].obj = {
 
         this.dashboard = settings.dashboard;
         this.settings = settings;
+        setTimeout(this.refresh.bind(this), 2000);
         this.interval = setInterval(this.refresh.bind(this), 10000);
 
         // load the template
