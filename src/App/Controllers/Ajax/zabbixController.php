@@ -10,8 +10,6 @@ namespace App\Controllers\Ajax;
 
 use \App\Config;
 use GuzzleHttp\Client;
-use GuzzleHttp\Cookie\CookieJar;
-use GuzzleHttp\Cookie\SessionCookieJar;
 
 class zabbixController
 {
