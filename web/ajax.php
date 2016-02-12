@@ -7,7 +7,8 @@
     spl_autoload_register('App\AutoLoader');
     function AutoLoader($className)
     {
-        if (file_exists('../src/' . $className . '.php')) require_once '../src/'.$className.'.php';
+        $file = __DIR__ . '/../src/' . str_replace('\\', DIRECTORY_SEPARATOR, $className) . '.php';
+        if (file_exists($file)) require_once $file;
     }
 
     require_once('../vendor/autoload.php');
